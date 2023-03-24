@@ -27,7 +27,7 @@ jobs:
 #      # Install the cosign tool except on PR
 #      # https://github.com/sigstore/cosign-installer
 #      - name: Install cosign
-#        if: github.event_name != 'pull_request'
+#        if: ${{ github.event_name != 'pull_request' }}
 #        uses: sigstore/cosign-installer@main #v2.6.0
 
       - name: Set up QEMU
@@ -42,7 +42,7 @@ jobs:
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
+        if: ${{ github.event_name != 'pull_request' }}
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
@@ -94,6 +94,7 @@ jobs:
 
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
+        if: ${{ github.event_name != 'pull_request' }}
         with:
           username: ${{ env.REGISTRY_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
