@@ -27,9 +27,8 @@ module.exports = {
         types: [
           {type: '*!', section: "BREAKING CHANGES"},
           {type: 'feat', section: "Features"},
-          {type: 'chore', scope: 'api-deps', section: "Dependency updates"},
-          {type: 'chore', scope: 'core-deps', release: 'patch', section: "Dependency updates"},
           {type: 'chore', scope: 'deps', section: "Dependency updates"},
+          {type: 'chore', scope: 'dev-deps', section: "Dev dependency updates"},
           {type: 'fix', section: "Bug Fixes"},
           {type: 'docs', section: "Documentation"},
           {type: 'perf', section: "Performance improvements"},
@@ -44,10 +43,13 @@ module.exports = {
       },
       releaseRules: [
         {type: '*!', release: 'major'},
-        {type: 'chore', scope: 'api-deps', release: 'minor'},
-        {type: 'chore', scope: 'core-deps', release: 'patch'},
-        {type: 'chore', scope: 'deps', release: 'patch'},
-        {type: 'docs', release: 'patch'},
+        {type: 'chore', scope: 'deps', release: 'minor'},
+        {type: 'build', scope: 'docker', release: 'minor'},
+
+        // {type: 'chore', scope: 'api-deps', release: 'minor'},
+        // {type: 'chore', scope: 'core-deps', release: 'patch'},
+        // {type: 'chore', scope: 'deps', release: 'patch'},
+        // {type: 'docs', release: 'patch'},
         {type: 'revert', release: 'patch'},
       ]
     }],
