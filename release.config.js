@@ -43,8 +43,10 @@ module.exports = {
       },
       releaseRules: [
         {type: '*!', release: 'major'},
-        {type: 'chore', scope: 'deps', release: 'minor'},
-        {type: 'build', scope: 'docker', release: 'minor'},
+        {type: 'chore', scope: 'deps', release: 'patch'},
+        {type: 'chore', scope: 'dev-deps', release: false},
+        {type: 'build', scope: 'docker', release: 'patch'},
+        {type: 'ci', release: false},
 
         // {type: 'chore', scope: 'api-deps', release: 'minor'},
         // {type: 'chore', scope: 'core-deps', release: 'patch'},
