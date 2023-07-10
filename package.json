@@ -38,7 +38,7 @@
     "commitizen": "^4.3.0",
     "conventional-changelog-conventionalcommits": "^6.1.0",
     "husky": "^8.0.3",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.0",
     "semantic-release": "^21.0.6"
   },
   "repository": {
