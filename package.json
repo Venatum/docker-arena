@@ -23,8 +23,8 @@
   "dependencies": {
     "bee-queue": "^1.5.0",
     "bull": "^4.11.3",
-    "bull-arena": "^4.0.0",
-    "bullmq": "^4.9.0"
+    "bull-arena": "^4.0.1",
+    "bullmq": "^4.10.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
@@ -33,7 +33,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.4",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^9.0.5",
+    "@semantic-release/github": "^9.0.6",
     "@semantic-release/release-notes-generator": "^11.0.7",
     "commitizen": "^4.3.0",
     "conventional-changelog-conventionalcommits": "^7.0.2",
