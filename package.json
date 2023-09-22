@@ -31,15 +31,15 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@commitlint/prompt": "^17.7.1",
     "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^10.0.4",
+    "@semantic-release/commit-analyzer": "^11.0.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^9.0.6",
-    "@semantic-release/release-notes-generator": "^11.0.7",
+    "@semantic-release/release-notes-generator": "^12.0.0",
     "commitizen": "^4.3.0",
     "conventional-changelog-conventionalcommits": "^7.0.2",
     "husky": "^8.0.3",
     "nodemon": "^3.0.1",
-    "semantic-release": "^21.1.1"
+    "semantic-release": "^22.0.0"
   },
   "repository": {
     "type": "git",
