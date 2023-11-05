@@ -1,9 +1,9 @@
-FROM node:lts
+FROM node:18-alpine
 
 # - Upgrade alpine packages to avoid possible os vulnerabilities
 # - Tini for Handling Kernel Signals https://github.com/krallin/tini
 #   https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#handling-kernel-signals
-#RUN apk --no-cache upgrade && apk add --no-cache tini redis
+RUN apk --no-cache upgrade && apk add --no-cache tini redis
 
 USER node
 
