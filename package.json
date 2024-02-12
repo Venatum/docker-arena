@@ -23,8 +23,8 @@
   "dependencies": {
     "bee-queue": "^1.7.1",
     "bull": "^4.12.2",
-    "bull-arena": "^4.1.1",
-    "bullmq": "^5.1.9"
+    "bull-arena": "^4.2.0",
+    "bullmq": "^5.1.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
