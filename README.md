@@ -11,12 +11,10 @@ To configure redis see "Environment variables" section.
 ### Quick start with docker-compose
 
 ```yaml
-version: "3"
-
 services:
     arena:
         container_name: arena
-        image: venatum/arena
+        image: venatum/arena:latest
         restart: unless-stopped
         volumes:
           - ./index.json:/home/node/arena/index.json:ro

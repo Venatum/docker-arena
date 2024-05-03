@@ -1,5 +1,3 @@
-version: "3.5"
-
 services:
   arena:
     container_name: arena
