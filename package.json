@@ -23,7 +23,7 @@
   "dependencies": {
     "bee-queue": "^1.7.1",
     "bull": "^4.12.2",
-    "bull-arena": "^4.4.0",
+    "bull-arena": "^4.4.1",
     "bullmq": "^5.7.8"
   },
   "devDependencies": {
