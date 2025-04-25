@@ -23,13 +23,13 @@
   "dependencies": {
     "bee-queue": "^1.7.1",
     "bull": "^4.16.5",
-    "bull-arena": "^4.4.2",
-    "bullmq": "^5.38.0"
+    "bull-arena": "^4.5.0",
+    "bullmq": "^5.51.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@commitlint/prompt": "^19.7.0",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/prompt": "^19.8.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -38,8 +38,8 @@
     "commitizen": "^4.3.1",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "husky": "^9.1.7",
-    "nodemon": "^3.1.9",
-    "semantic-release": "^24.2.1"
+    "nodemon": "^3.1.10",
+    "semantic-release": "^24.2.3"
   },
   "repository": {
     "type": "git",
