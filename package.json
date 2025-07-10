@@ -24,29 +24,30 @@
     "bee-queue": "^1.7.1",
     "bull": "^4.16.5",
     "bull-arena": "^4.5.1",
-    "bullmq": "^5.51.1"
+    "bullmq": "^5.56.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@commitlint/prompt": "^19.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/prompt": "^19.8.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.2",
+    "@semantic-release/github": "^11.0.3",
     "@semantic-release/release-notes-generator": "^14.0.3",
     "commitizen": "^4.3.1",
-    "conventional-changelog-conventionalcommits": "^9.0.0",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
     "husky": "^9.1.7",
     "nodemon": "^3.1.10",
-    "semantic-release": "^24.2.3"
+    "semantic-release": "^24.2.6"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/venatum/docker-arena.git"
   },
   "author": {
-    "name": "Vincent LE QUEC (Venatum)"
+    "name": "Vincent LE QUEC (Venatum)",
+    "url": "https://github.com/venatum"
   },
   "husky": {
     "hooks": {
