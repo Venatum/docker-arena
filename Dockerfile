@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM node:24-alpine
 
 # - Upgrade alpine packages to avoid possible os vulnerabilities
 # - Tini for Handling Kernel Signals https://github.com/krallin/tini
