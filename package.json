@@ -21,7 +21,7 @@
     "commit": "cz"
   },
   "dependencies": {
-    "bee-queue": "^1.7.1",
+    "bee-queue": "^2.0.0",
     "bull": "^4.16.5",
     "bull-arena": "^4.9.2",
     "bullmq": "^5.63.2"
