@@ -24,11 +24,13 @@ There are no tests in this project.
 ## Architecture
 
 Single-file application (`index.js`) that:
+
 1. Loads queue config from `index.json` (gracefully handles missing file)
 2. Lazy-loads queue libraries (Bull, Bee, BullMQ) on first access
 3. Passes everything to bull-arena which serves the web UI
 
 Key files:
+
 - `index.js` — entry point, ~25 lines
 - `index.json` — queue definitions (name, hostId, type, redis URL, prefix)
 - `docker-compose.yml` — arena + redis services
@@ -36,6 +38,7 @@ Key files:
 ## Commit Conventions
 
 Conventional commits expected. Semantic-release automates versioning:
+
 - **MAJOR**: any commit type with `!` (breaking change)
 - **MINOR**: `feat`
 - **PATCH**: `fix`, `docs`, `perf`, `revert`, `chore(deps)`, `build(docker)`

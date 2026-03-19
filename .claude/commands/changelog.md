@@ -21,17 +21,22 @@ Generate a changelog from git history since the last tag.
 ## [Unreleased] — since <last-tag>
 
 ### Breaking Changes
+
 - ...
 
 ### Features
+
 - ...
 
 ### Bug Fixes
+
 - ...
 
 ### Maintenance
+
 - ...
 ```
 
 ## Allowed tools
-- Bash(git:*)
+
+- Bash(git:\*)

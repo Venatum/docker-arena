@@ -1,7 +1,7 @@
 services:
   arena:
     container_name: arena
-#    image: venatum/arena:latest
+    #    image: venatum/arena:latest
     build:
       dockerfile: ./Dockerfile
       context: .

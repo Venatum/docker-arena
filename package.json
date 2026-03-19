@@ -1,9 +1,7 @@
 {
   "name": "docker-arena",
-  "main": "index.js",
   "version": "0.0.0",
   "description": "The official docker application for bee-queue arena.",
-  "license": "MIT",
   "keywords": [
     "arena",
     "bee",
@@ -12,11 +10,26 @@
     "docker",
     "queue"
   ],
+  "license": "MIT",
+  "author": {
+    "name": "Vincent LE QUEC (Venatum)",
+    "url": "https://github.com/venatum"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venatum/docker-arena.git"
+  },
+  "main": "index.js",
   "scripts": {
     "build": "docker build . -t docker-arena",
     "start": "node index.js",
     "start:dev": "nodemon --ignore 'public/vendor/*'",
-    "inspect": "nodemon --inspect --trace-warnings --ignore 'public/vendor/*'"
+    "inspect": "nodemon --inspect --trace-warnings --ignore 'public/vendor/*'",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt --check",
+    "format:fix": "oxfmt --write",
+    "fix": "npm run lint:fix && npm run format:fix"
   },
   "dependencies": {
     "bee-queue": "^2.0.0",
@@ -32,14 +45,8 @@
     "@semantic-release/release-notes-generator": "^14.1.0",
     "conventional-changelog-conventionalcommits": "^9.3.0",
     "nodemon": "^3.1.14",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
     "semantic-release": "^25.0.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/venatum/docker-arena.git"
-  },
-  "author": {
-    "name": "Vincent LE QUEC (Venatum)",
-    "url": "https://github.com/venatum"
   }
 }

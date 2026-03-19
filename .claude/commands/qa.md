@@ -5,8 +5,10 @@ Full quality check: code review.
 ## Steps
 
 ### 1. Analyze the diff
+
 Run `git diff HEAD` (or `git diff master..HEAD` if on a feature branch).
 Review the changes for:
+
 - Correctness and logic errors
 - Security issues (injection, hardcoded secrets, etc.)
 - Project conventions: CommonJS, no TypeScript, npm only
@@ -30,5 +32,6 @@ Review the changes for:
 ```
 
 ## Allowed tools
-- Bash(git:*)
-- Bash(npm run:*)
+
+- Bash(git:\*)
+- Bash(npm run:\*)

@@ -3,19 +3,18 @@ FROM node:24-alpine
 # - Upgrade alpine packages to avoid possible os vulnerabilities
 # - Tini for Handling Kernel Signals https://github.com/krallin/tini
 #   https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#handling-kernel-signals
-RUN apk --no-cache upgrade && apk add --no-cache tini redis
+RUN apk --no-cache upgrade && apk add --no-cache tini
 
 USER node
 
 WORKDIR /home/node/arena
 
-COPY --chown=node:node ./package.json .
-COPY --chown=node:node ./package-lock.json .
-COPY --chown=node:node ./index.js .
+COPY --chown=node:node ./package.json ./package-lock.json ./
+RUN npm ci --omit=dev
 
-RUN npm ci --only=production
+COPY --chown=node:node ./index.js .
 
 EXPOSE 4567
 
-ENTRYPOINT ["npm"]
-CMD ["start"]
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["node", "index.js"]
