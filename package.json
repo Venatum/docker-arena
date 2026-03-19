@@ -16,9 +16,7 @@
     "build": "docker build . -t docker-arena",
     "start": "node index.js",
     "start:dev": "nodemon --ignore 'public/vendor/*'",
-    "inspect": "nodemon --inspect --trace-warnings --ignore 'public/vendor/*'",
-    "commitlint": "commitlint --from origin/master",
-    "commit": "cz"
+    "inspect": "nodemon --inspect --trace-warnings --ignore 'public/vendor/*'"
   },
   "dependencies": {
     "bee-queue": "^2.0.0",
@@ -27,17 +25,12 @@
     "bullmq": "^5.69.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.1",
-    "@commitlint/config-conventional": "^20.4.1",
-    "@commitlint/prompt": "^20.4.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
     "@semantic-release/release-notes-generator": "^14.1.0",
-    "commitizen": "^4.3.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
-    "husky": "^9.1.7",
     "nodemon": "^3.1.11",
     "semantic-release": "^25.0.3"
   },
@@ -48,15 +41,5 @@
   "author": {
     "name": "Vincent LE QUEC (Venatum)",
     "url": "https://github.com/venatum"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   }
 }
