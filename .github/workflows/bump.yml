@@ -1,0 +1,88 @@
+name: Bump
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bump:
+    name: Bump dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.SEMANTIC_TOKEN }}
+
+      # Same major as the Docker base image (node:24-alpine).
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Bump minor versions (ncu)
+        run: npx --yes npm-check-updates -t minor -u
+
+      - name: Install and update dependencies
+        run: |
+          npm install
+          npm update
+          # audit fix should not fail the job when vulnerabilities remain unfixable
+          npm audit fix || true
+
+      - name: Lint & Format
+        run: npm run fix
+
+      # No test suite here: build the image and check the dashboard answers.
+      - name: Smoke test (Docker)
+        run: |
+          docker compose up -d --build
+          for i in $(seq 1 30); do
+            curl -fsS -o /dev/null http://localhost:4567/ && exit 0
+            sleep 2
+          done
+          docker compose logs arena
+          exit 1
+
+      - name: Stop Docker stack
+        if: always()
+        run: docker compose down
+
+      # Build the commit subject from the actual dependency diff, reusing the
+      # release TL;DR plugin. Subject follows the changelog norm:
+      # "chore(deps): update dependencies <name> and <name> to <ver> and <name> to <ver>".
+      - name: Build commit message
+        id: pr
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const { execFileSync } = require("node:child_process");
+            const { parseDependencies, diffDependencies } = require("./scripts/tldr-plugin.cjs");
+            const prev = parseDependencies(execFileSync("git", ["show", "HEAD:package.json"], { encoding: "utf8" }));
+            const next = parseDependencies(fs.readFileSync("package.json", "utf8"));
+            const groups = new Map();
+            for (const { name, newVersion } of diffDependencies(prev, next)) {
+              if (!groups.has(newVersion)) groups.set(newVersion, []);
+              groups.get(newVersion).push(name);
+            }
+            const parts = [...groups].map(([version, names]) => `${names.join(" and ")} to ${version}`);
+            const subject = parts.length
+              ? `chore(deps): update dependencies ${parts.join(" and ")}`
+              : "chore(deps): update dependencies to their latest minor";
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `subject=${subject}\n`);
+          '
+
+      - name: Commit and push to master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo "No dependency changes to commit."
+            exit 0
+          fi
+          git commit -m "${{ steps.pr.outputs.subject }}"
+          git push origin HEAD:master

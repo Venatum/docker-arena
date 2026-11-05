@@ -48,6 +48,7 @@ Use scopes `deps` / `dev-deps` for dependency updates, `docker` for Dockerfile c
 
 ## CI/CD
 
-- **Release** (`master` push): semantic-release creates GitHub releases
+- **Release** (`master` push): semantic-release creates GitHub releases; `scripts/tldr-plugin.cjs` (shared with bull-board-docker) injects a TL;DR of direct dependency bumps since the last tag after the version header
+- **Bump** (manual): ncu minor + `npm update` + `npm audit fix`, lint/format, Docker smoke test, then pushes a `chore(deps)` commit to `master` (which triggers a patch release)
 - **Docker publish** (tags `v*.*.*`): builds multi-arch images (amd64/arm64), publishes to `docker.io/venatum/arena`
 - **Renovate** (weekly Friday): automated dependency updates with automerge for dev-deps, actions, and semantic-release packages
